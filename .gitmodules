@@ -1,0 +1,3 @@
+[submodule "nodeschool-presentations"]
+	path = nodeschool-presentations
+	url = https://github.com/kmckee/nodeschool-presentations
