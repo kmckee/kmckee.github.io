@@ -169,11 +169,9 @@ export default class Presentation extends React.Component {
              <Image src={images.math.replace("/", "")} margin="0px auto 40px" />
           </Slide>
           <Slide notes="Pace of sound is measured in microseconds per centimeter" textFont="Comic Sans">
-              <Appear fid="1">
-                <Heading fit>
-                  D = (Δt/2) / Pace of sound
-                </Heading>
-              </Appear>
+              <Heading fit>
+                D = (Δt/2) / Pace of sound
+              </Heading>
               <Appear fid="2">
                 <Heading size={2} margin="20px 0">
                   D = (Δt/2) / 29.1μs/cm
