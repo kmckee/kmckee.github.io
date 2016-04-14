@@ -47,7 +47,10 @@ const images = {
   dolphin: require("../assets/dolphin.jpg"),
   submarine: require("../assets/submarine.jpg"),
   toothbrush: require("../assets/toothbrush.jpg"),
-  sensorPingOperation: require("../assets/SensorPingOperation.png")
+  soundBarrier: require("../assets/sound_barrier.gif"),
+  sensorPingOperation: require("../assets/SensorPingOperation.png"),
+  code: require("../assets/code.gif"),
+  math: require("../assets/math.jpg")
 };
 
 preloader(images);
@@ -65,7 +68,7 @@ export default class Presentation extends React.Component {
           transitionDuration={500}
           progress="pacman"
         >
-          <Slide transition={["zoom"]} bgColor="primary">
+          <Slide transition={["zoom"]}>
             <Heading size={1} fit caps lineHeight={1} textColor="black">
               Ultrasonic Sensors
             </Heading>
@@ -73,21 +76,21 @@ export default class Presentation extends React.Component {
               with arduino
             </Heading>
           </Slide>
-          <Slide transition={["slide"]} bgImage={images.dolphin.replace("/", "")} bgDarken={0.75}>
+          <Slide bgImage={images.dolphin.replace("/", "")} bgDarken={0.75}>
             <Appear fid="1">
               <Heading size={1} caps fit textColor="primary">
                 Echo location
               </Heading>
             </Appear>
           </Slide>
-          <Slide transition={["slide"]} bgImage={images.bat.replace("/", "")} bgDarken={0.75}>
+          <Slide bgImage={images.bat.replace("/", "")} bgDarken={0.75}>
             <Appear fid="1">
               <Heading size={1} caps fit textColor="primary">
                 Echo location
               </Heading>
             </Appear>
           </Slide>
-          <Slide transition={["slide"]} bgImage={images.submarine.replace("/", "")} bgDarken={0.75}>
+          <Slide bgImage={images.submarine.replace("/", "")} bgDarken={0.75}>
           <Appear fid="1">
              <Heading size={1} caps fit textColor="primary">
                Even More
@@ -99,7 +102,7 @@ export default class Presentation extends React.Component {
              </Heading>
            </Appear>
           </Slide>
-          <Slide transition={["slide"]} bgImage={images.baby.replace("/", "")} bgDarken={0.1}>
+          <Slide bgImage={images.baby.replace("/", "")} bgDarken={0.1}>
             <Appear fid="1">
               <Heading size={1} caps fit textColor="primary">
                 Echo location
@@ -111,13 +114,13 @@ export default class Presentation extends React.Component {
               </Heading>
             </Appear>
           </Slide>
-          <Slide transition={["slide"]} bgColor="black">
+          <Slide bgColor="black">
             <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="primary" textFont="primary">
               Wait what?
             </Heading>
           </Slide>
-          <Slide transition={["slide"]} bgColor="primary" notes="Our sensors are 40 kHz">
+          <Slide notes="Our sensors are 40 kHz">
             <Image src={images.ultrasoundLine.replace("/", "")} margin="0px auto 40px" width="100%"/>
             <Appear fid="1">
                <Heading size={1} caps fit textColor="black">
@@ -130,8 +133,7 @@ export default class Presentation extends React.Component {
                 </Heading>
               </Appear>
           </Slide>
-          {/* how does it work? */}
-          <Slide transition={["slide"]} bgColor="primary">
+          <Slide>
             <Heading size={2} caps fit textColor="black" textFont="primary">
               How does it work?
             </Heading>
@@ -144,16 +146,81 @@ export default class Presentation extends React.Component {
               </Text>
             </Appear>
           </Slide>
-          <Slide transition={["slide"]} bgColor="primary" >
+          <Slide>
             <iframe src="http://kmckee.github.io/arduino_ultrasonic_sensor/game/index.html" width="100%" height="600px"></iframe>
           </Slide>
-          {/* visualization/game */}
+          <Slide>
+             <Heading size={1} caps fit textColor="black">
+               How fast is sound?
+             </Heading>
+            <Appear fid="1">
+              <Image src={images.soundBarrier.replace("/", "")} margin="0px auto 40px" width="100%"/>
+            </Appear>
+            <Appear fid="2">
+              <Heading caps fit>
+                768 mph == 1,236 km/h == 343.2 meters/sec == pretty fast
+              </Heading>
+            </Appear>
+          </Slide>
+          <Slide>
+             <Heading caps fit>
+                Now for some
+             </Heading>
+             <Image src={images.math.replace("/", "")} margin="0px auto 40px" />
+          </Slide>
+          <Slide notes="Pace of sound is measured in microseconds per centimeter" textFont="Comic Sans">
+              <Appear fid="1">
+                <Heading fit>
+                  D = (Δt/2) / Pace of sound
+                </Heading>
+              </Appear>
+              <Appear fid="2">
+                <Heading size={2} margin="20px 0">
+                  D = (Δt/2) / 29.1μs/cm
+                </Heading>
+              </Appear>
+              <Appear fid="3" textColor="white">
+                <Heading size={2} fit margin="60px 0">
+                  WRITE THAT DOWN!
+                </Heading>
+              </Appear>
+          </Slide>
+          <Slide>
+            <Appear fid="1">
+              <Heading fit>
+                Example:  Heard echo after 3 seconds.
+              </Heading>
+            </Appear>
+            <Appear fid="2">
+              <Heading size={2} textColor="black">
+                D = (Δt/2) / 29.1μs/cm
+              </Heading>
+            </Appear>
+            <Appear fid="3">
+              <Heading fit textColor="black" margin="20px 0">
+                D = (3,000,000 / 2) / 29.1μs/cm
+              </Heading>
+            </Appear>
+            <Appear fid="4">
+              <Heading fit textColor="black">
+                D = 51546.39 cm == 515.46 meters
+              </Heading>
+            </Appear>
+          </Slide>
+          <Slide bgColor="black">
+             <Heading caps fit>
+                Now for some
+             </Heading>
+             <Image src={images.code.replace("/", "")} margin="0px auto 40px" width="80%"/>
+          </Slide>
+
           {/* The basic gist of it is:
                 - Send a ping
                 - Listen for a pong
                 - Do some math  (jet picture)
                 - Know the distance!
-             */}
+             */
+           }
           {/* lets talk code */}
         </Deck>
       </Spectacle>
