@@ -145,7 +145,7 @@ export default class Presentation extends React.Component {
             </Appear>
           </Slide>
           <Slide transition={["slide"]} bgColor="primary" >
-            <iframe src="http://www.w3schools.com" width="100%" height="600px"></iframe>
+            <iframe src="http://kmckee.github.io/arduino_ultrasonic_sensor/game/index.html" width="100%" height="600px"></iframe>
           </Slide>
           {/* visualization/game */}
           {/* The basic gist of it is:
