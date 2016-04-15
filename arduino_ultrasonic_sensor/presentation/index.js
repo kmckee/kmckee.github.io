@@ -214,7 +214,7 @@ export default class Presentation extends React.Component {
               { loc: [15, 16], title: "Do some math!" },
               { loc: [16, 23], title: "Use the result" },
               { loc: [23, 24], title: "Twice per second is plenty" },
-              { loc: [9, 25], title: "All together now" }
+              { loc: [9, 25] }
             ]}
           />
         </Deck>
