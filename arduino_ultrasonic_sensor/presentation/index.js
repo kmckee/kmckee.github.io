@@ -4,32 +4,22 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Appear,
-  BlockQuote,
-  Cite,
   CodePane,
   Deck,
-  Fill,
   Heading,
   Image,
-  Layout,
-  Link,
-  ListItem,
-  List,
-  Markdown,
-  Quote,
   Slide,
   Spectacle,
   Text
 } from "spectacle";
+
+import CodeSlide from "spectacle-code-slide";
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
 import createTheme from "spectacle/lib/themes/default";
-
-// Import custom component
-import Interactive from "../assets/interactive";
 
 // Require CSS
 require("normalize.css");
@@ -211,15 +201,12 @@ export default class Presentation extends React.Component {
              </Heading>
              <Image src={images.code.replace("/", "")} margin="0px auto 40px" width="80%"/>
           </Slide>
-
-          {/* The basic gist of it is:
-                - Send a ping
-                - Listen for a pong
-                - Do some math  (jet picture)
-                - Know the distance!
-             */
-           }
-          {/* lets talk code */}
+          <Slide>
+            <CodePane
+              lang="clike"
+              source={require("raw!../assets/code.example")}
+            />
+          </Slide>
         </Deck>
       </Spectacle>
     );
