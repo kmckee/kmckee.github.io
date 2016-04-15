@@ -4,7 +4,6 @@ import React from "react";
 // Import Spectacle Core tags
 import {
   Appear,
-  CodePane,
   Deck,
   Heading,
   Image,
@@ -60,10 +59,10 @@ export default class Presentation extends React.Component {
         >
           <Slide transition={["zoom"]}>
             <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Ultrasonic Sensors
+            Great Science Academy
             </Heading>
             <Heading size={1} fit caps>
-              with arduino
+              Ultrasonic Sensors
             </Heading>
           </Slide>
           <Slide bgImage={images.dolphin.replace("/", "")} bgDarken={0.75}>
@@ -136,7 +135,7 @@ export default class Presentation extends React.Component {
               </Text>
             </Appear>
           </Slide>
-          <Slide>
+          <Slide transition={["fade"]}>
             <iframe src="http://kmckee.github.io/arduino_ultrasonic_sensor/game/index.html" width="100%" height="600px"></iframe>
           </Slide>
           <Slide>
@@ -201,12 +200,22 @@ export default class Presentation extends React.Component {
              </Heading>
              <Image src={images.code.replace("/", "")} margin="0px auto 40px" width="80%"/>
           </Slide>
-          <Slide>
-            <CodePane
-              lang="clike"
-              source={require("raw!../assets/code.example")}
-            />
-          </Slide>
+          <CodeSlide
+            lang="clike"
+            code={require("raw!../assets/code.example")}
+            transition={[]}
+            ranges={[
+              { loc: [0, 270], title: "Walking through some code" },
+              { loc: [3, 8], title: "Set up your pins" },
+              { loc: [0, 2], title: "Remember to declare them" },
+              { loc: [9, 10], title: "Time for the loop" },
+              { loc: [11, 14], title: "Turn the trigger on for 100ms" },
+              { loc: [14, 15], title: "Capture the echo time" },
+              { loc: [15, 16], title: "Do some math!" },
+              { loc: [23, 24], title: "Twice per second is plenty" },
+              { loc: [9, 25], title: "All together now" }
+            ]}
+          />
         </Deck>
       </Spectacle>
     );
