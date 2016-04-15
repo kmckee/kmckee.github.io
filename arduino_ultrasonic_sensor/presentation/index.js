@@ -212,6 +212,7 @@ export default class Presentation extends React.Component {
               { loc: [11, 14], title: "Turn the trigger on for 100ms" },
               { loc: [14, 15], title: "Capture the echo time" },
               { loc: [15, 16], title: "Do some math!" },
+              { loc: [16, 23], title: "Use the result" },
               { loc: [23, 24], title: "Twice per second is plenty" },
               { loc: [9, 25], title: "All together now" }
             ]}
